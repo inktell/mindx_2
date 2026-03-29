@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="pokedex-outer-shell">
+        <div class="panel left-panel">
+            <div class="top-lights">
+                <div class="light big-blue"></div>
+                <div class="light small-red"></div>
+                <div class="light small-yellow"></div>
+                <div class="light small-green"></div>
+            </div>
+            
+            <div class="screen-border left-screen-border">
+                <div class="screen main-screen" style="background-image: url('image_4.png');">
+                    <img id="pokemon-sprite-display" src="" alt="">
+                    <div class="pokedex-brand-text">POKÉDEX</div>
+                </div>
+            </div>
+
+            <div class="controls-left">
+                <div class="blue-button"></div>
+                <div class="d-pad">
+                    <div class="up"></div>
+                    <div class="right"></div>
+                    <div class="down"></div>
+                    <div class="left"></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hinge"></div>
+
+        <div class="panel right-panel">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Nhập tên Pokémon...">
+            </div>
+
+            <div class="screen-border right-screen-border">
+                <div class="screen list-screen">
+                    <div id="pokemon-list">
+                        </div>
+                </div>
+            </div>
+
+            <div class="keypad">
+                <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+                <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <div id="pokemon-detail"></div>
+        </div>
+    </div>
+    
+    <div id="pokemon-detail">
+    <div class="detail-header">
+        <h2 id="detail-name">---</h2>
+        <div id="detail-types"></div>
+    </div>
+    
+    <div class="detail-body">
+        <div class="stats-container">
+            </div>
+        <div class="abilities">
+            <strong>Abilities:</strong> <span id="detail-abilities">---</span>
+        </div>
+        <div class="description-box">
+            <strong>Pokedex Entry:</strong>
+            <p id="detail-desc">Loading description...</p>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
