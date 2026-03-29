@@ -1,0 +1,231 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+/* Menu mặc định ẩn trên mobile hoặc xếp chồng */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    list-style: none;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+/* Hiện khi bấm nút */
+
+.nav-menu li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Nút Hamburger */
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* --- Responsive cho Desktop (Màn hình > 768px) --- */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Ẩn nút hamburger */
+
+    .nav-menu {
+        display: flex;
+        /* Hiện menu ngang */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+    }
+
+    .nav-menu li {
+        border: none;
+    }
+
+    .nav-menu a:hover {
+        color: #ffc107;
+    }
+}
+
+
+/* Container chứa lưới thời gian */
+.time-grid {
+    display: grid;
+    /* Tự động lấp đầy, mỗi ô tối thiểu 120px, tối đa chiếm hết khoảng trống */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.time-slot {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột hoặc chọn */
+.time-slot:hover {
+    border-color: #ffc107;
+    background-color: #fff9e6;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Container của toàn bộ Form */
+.booking-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Group cho mỗi ô nhập liệu (gồm label và input) */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+/* Style cho các ô Input (Email, Tel, Date) */
+.booking-form input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 16px; /* Kích thước chuẩn để không bị auto-zoom trên iPhone */
+  color: #333;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Hiệu ứng khi người dùng nhấn vào ô nhập */
+.booking-form input:focus {
+  border-color: #ffc107; /* Màu vàng thương hiệu nhà hàng */
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.2);
+}
+
+/* Style riêng cho nút gửi Form */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #444;
+}
+
+
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  background-color: #222;
+  color: #ffc107; /* Màu vàng thương hiệu */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.summary-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: #ffc107;
+  border: none;
+  color: #222;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #e5ac00;
+  color: #000;
+}

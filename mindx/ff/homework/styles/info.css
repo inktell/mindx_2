@@ -1,0 +1,68 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.nav {
+    position: fixed; top: 0; width: 100%; height: 60px;
+    padding: 20px; display: flex; justify-content: space-between;
+    background-color: #000; z-index: 100;
+}
+.nav__logo { width: 100px; object-fit: contain; }
+.nav__avatar { width: 35px; border-radius: 5px; }
+
+/* Profile Layout */
+.profile-container {
+    max-width: 800px; margin: 100px auto; padding: 20px;
+}
+h1 { font-size: 3rem; margin-bottom: 20px; }
+.profile-content { background: #222; padding: 40px; border-radius: 10px; }
+
+.profile-header { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; }
+#user-avatar-big { width: 150px; border-radius: 10px; }
+
+.profile-info h2 { font-size: 2rem; }
+.profile-info p { color: #aaa; margin: 10px 0; }
+
+.edit-btn {
+    background: transparent; border: 1px solid #aaa; color: white;
+    padding: 10px 20px; cursor: pointer; transition: 0.3s;
+}
+.edit-btn:hover { background: white; color: black; }
+
+/* My List */
+.my-list h3 { margin-top: 20px; font-size: 1.5rem; }
+.movie-row { display: flex; gap: 10px; margin-top: 20px; overflow-x: auto; }
+
+/* Modal */
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); z-index: 200; align-items: center; justify-content: center;
+}
+.modal-content { background: #333; padding: 30px; border-radius: 10px; width: 300px; }
+.modal-content input {
+    width: 100%; padding: 10px; margin: 10px 0; background: #444; border: none; color: white;
+}
+.modal-buttons { display: flex; justify-content: space-between; margin-top: 10px; }
+.save-btn { background: #e50914; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+.cancel-btn { background: #555; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+
+.manage-btn {
+    background: #e50914; /* Màu đỏ Netflix */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.manage-btn:hover {
+    background: #f40612;
+    transform: scale(1.05);
+}

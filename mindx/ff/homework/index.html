@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="showcase">
+        <div class="showcase-top">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" id="logo">
+            <a href="login.html" class="btn btn-rounded">Đăng nhập</a>
+        </div>
+        <div class="showcase-content">
+            <h1>Chương trình truyền hình, phim không giới hạn và nhiều nội dung khác.</h1>
+            <p>Xem ở bất cứ đâu. Hủy bất kỳ lúc nào.</p>
+            <div class="email-form">
+                <input type="email" placeholder="Địa chỉ email">
+                <a href="login.html" class="btn btn-xl">Bắt đầu ngay ></a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        if (localStorage.getItem('currentUser')) {
+    window.location.href = 'browse.html';
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    background-color: #3a2723;
+    padding: 10px;
+    border-radius: 10px;
+    /* grid-column-gap: 10px;
+    grid-row-gap: 25px; */
+}
+.item {
+    background-color: #80cbc4;
+    border: 1px solid #fff;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+/* 
+.item1,
+.item6,
+.item8 {
+    grid-column-start:1 ;
+    grid-column-end:3 ;
+} */

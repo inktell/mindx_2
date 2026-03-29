@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RapidAPI Test</title>
+</head>
+<body>
+
+<pre id="result">Loading...</pre>
+
+<script>
+fetch("https://ip-geo-location.p.rapidapi.com/ip/check?ip=8.8.8.8", {
+    method: "GET",
+    headers: {
+        "X-RapidAPI-Key": "9b7c3ede447b14c5e0e9d33a137ddac9",
+        "X-RapidAPI-Host": "ip-geo-location.p.rapidapi.com"
+    }
+})
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+    document.getElementById("result").textContent =
+        JSON.stringify(data, null, 2);
+})
+.catch(err => {
+    console.error(err);
+    document.getElementById("result").textContent = "Error";
+});
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method="post">
+        <label for="city">Enter City Name:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div id = "weather-container"></div>
+
+    <script>
+        const users = 
+        [{ name: "Alice", age: 30, email: "john@example.com", city: "New York"},];
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.removeItem("users");
+        var userList = JSON.parse(localStorage.getItem("users"));
+        console.log(userList);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="name">Name</label><br>
+        <input type="text" name="name" id="name" placeholder="Name" required><br>
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="email" placeholder="Email" required><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password" placeholder="Password" required><br>
+        <label for="confirmPassword">Confirm Password</label><br>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required> <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script src="resigter.js"></script>
+</body>
+</html>

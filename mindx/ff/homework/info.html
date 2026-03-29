@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ người dùng - Netflix Clone</title>
+    <link rel="stylesheet" href="styles/info.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                class="nav__logo" alt="Netflix Logo"></a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" class="nav__avatar"
+            alt="User Avatar">
+    </nav>
+
+    <div class="profile-container">
+        <h1>Hồ sơ cá nhân</h1>
+
+        <div class="profile-content">
+            <div class="profile-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Avatar"
+                    id="user-avatar-big">
+                <div class="profile-info">
+                    <h2 id="display-name">Người dùng Netflix</h2>
+                    <p id="display-email">nguoidung@gmail.com</p>
+                    <button class="edit-btn" onclick="toggleEdit()">Chỉnh sửa hồ sơ</button>
+                    <button class="manage-btn" onclick="window.location.href='mg_movie.html'">
+                        🎬 Quản lý phim của tôi
+                    </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="my-list">
+                <h3>Danh sách của tôi</h3>
+                <div id="favorite-movies" class="movie-row">
+                    <p style="color: #555;">Bạn chưa lưu phim nào.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h3>Cập nhật thông tin</h3>
+            <input type="text" id="input-name" placeholder="Tên hiển thị">
+            <input type="email" id="input-email" placeholder="Email mới">
+            <div class="modal-buttons">
+                <button onclick="saveProfile()" class="save-btn">Lưu lại</button>
+                <button onclick="toggleEdit()" class="cancel-btn">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/info.js"></script>
+</body>
+
+</html>

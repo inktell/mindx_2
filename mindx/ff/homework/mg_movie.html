@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/mg_movie.css">
+</head>
+
+<body>
+    <div class="admin-header">
+    <div class="header-left">
+        <a href="index.html" class="nav-link">🏠 Trang chủ</a>
+        <a href="info.html" class="nav-link">👤 Hồ sơ</a>
+    </div>
+</div>
+
+<div class="admin-container">
+    <h2>Bảng Điều Khiển Quản Lý Phim</h2>
+    </div>
+
+    <div class="admin-container">
+        <h2>Quản lý danh sách phim của tôi</h2>
+
+        <div class="movie-form">
+            <input type="hidden" id="edit-movie-index">
+            <input type="text" id="movie-title" placeholder="Tên bộ phim">
+            <input type="text" id="movie-image" placeholder="Link ảnh Poster (URL)">
+
+            <input type="text" id="movie-video" placeholder="Link Video (YouTube hoặc MP4)">
+
+            <textarea id="movie-desc" placeholder="Nhập mô tả tóm tắt bộ phim..."></textarea>
+
+            <div class="form-actions">
+                <button id="btn-save" onclick="saveMovie()">Lưu Phim</button>
+                <button id="btn-cancel" onclick="resetForm()" style="display:none;">Hủy</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="admin-movie-list" class="admin-grid">
+        </div>
+    </div>
+
+    <script src="scripts/mg_movie.js"></script>
+</body>
+
+</html>
