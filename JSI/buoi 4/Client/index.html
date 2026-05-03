@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Marketplace</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div id="matrix-bg"></div>
+
+    <section id="site-choice" class="site-choice active">
+        <div class="site-choice-card">
+            <h1>Chào mừng đến Firebase Marketplace</h1>
+            <p>Chọn một trong hai cách để tiếp tục trên website:</p>
+            <div class="site-choice-actions">
+                <button id="goWebsiteBtn" class="btn-primary">Đi đến website</button>
+                <button id="stayBtn" class="btn-secondary">Ở lại và xem thông tin</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="site-info" class="site-info">
+        <div class="site-info-container">
+            <div class="info-panel">
+                <h2>Thông tin trước khi vào trang chính</h2>
+                <p>Đây là nơi bạn có thể xem nội dung giới thiệu, hình ảnh sản phẩm và lựa chọn trước khi đăng nhập.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <img src="https://via.placeholder.com/360x220?text=Siêu+Thị" alt="Siêu thị" />
+                        <h3>Siêu thị trực tuyến</h3>
+                        <p>Khám phá sản phẩm mới với giao diện tối và hiệu ứng độc đáo.</p>
+                    </div>
+                    <div class="info-card">
+                        <img src="https://via.placeholder.com/360x220?text=Đăng+nhập" alt="Đăng nhập" />
+                        <h3>Đăng nhập nhanh</h3>
+                        <p>Đăng nhập bằng email và mật khẩu để quản lý giỏ hàng ngay.</p>
+                    </div>
+                    <div class="info-card" id="siteInfoUser">
+                        <h3>Thông tin người dùng</h3>
+                        <div id="siteInfoUserContent" class="info-card-content">
+                            <p>Bạn chưa đăng nhập. Vui lòng <a href="login.html">đăng nhập</a> hoặc <a href="signup.html">đăng ký</a> để xem thông tin cá nhân.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-info-bottom">
+                <button id="infoLogoutBtn" class="btn-logout">🚪 Đăng xuất</button>
+                <button id="infoHomeBtn" class="btn-home">🏠 Đến trang chủ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTH BUTTONS (Corner positions) -->
+    <div class="auth-corner-group">
+        <div id="login-btn-corner" class="auth-corner-btn">
+            <a href="login.html">🔐 Đăng nhập</a>
+        </div>
+        <div id="signup-btn-corner" class="auth-corner-btn">
+            <a href="signup.html">📝 Đăng ký</a>
+        </div>
+    </div>
+    
+    <div id="logout-btn-corner" class="auth-corner-btn right-corner" style="display:none;" onclick="handleLogoutCorner()">
+        🚪 Đăng xuất
+    </div>
+    
+    <div class="app hidden">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <span class="logo-text">💳 MARKETPLACE</span>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="headerSearch" placeholder="Tìm sản phẩm..." class="header-search">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <nav class="header-nav">
+                    <a href="#" onclick="switchPage('home')" class="nav-link"><span class="nav-icon">🏠</span> Trang chủ</a>
+                    <a href="#" onclick="switchPage('cart')" class="nav-link"><span class="nav-icon">🛒</span> Giỏ <span id="cart-count" style="display:none;">0</span></a>
+                    <a href="#" onclick="switchPage('orders')" class="nav-link"><span class="nav-icon">📦</span> Đơn hàng</a>
+                    <a href="#" onclick="switchPage('profile')" class="nav-link"><span class="nav-icon">👤</span> Hồ sơ</a>
+                </nav>
+                <div id="auth-links" class="auth-links"></div>
+            </div>
+            <!-- CATEGORY NAVBAR -->
+            <nav class="category-navbar">
+                <a href="#" class="category-nav-item active" data-category="all">📦 Tất cả</a>
+                <a href="#" class="category-nav-item" data-category="electronics">📱 Điện tử</a>
+                <a href="#" class="category-nav-item" data-category="fashion">👗 Thời trang</a>
+                <a href="#" class="category-nav-item" data-category="food">🍔 Thực phẩm</a>
+                <a href="#" class="category-nav-item" data-category="home">🛋️ Nhà cửa</a>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- HOME PAGE -->
+            <section id="home-page" class="page-content active">
+                <div class="banner-section">
+                    <div class="banner">
+                        <h2>🛍️ Siêu Thị Trực Tuyến</h2>
+                        <p>Mua sắm dễ dàng - Giao hàng nhanh</p>
+                        <div class="banner-actions">
+                            <button type="button" class="btn-primary" onclick="handleSellClick()">📣 Bán đồ ngay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="filters-section">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="popular">Phổ biến nhất</option>
+                        <option value="price-low">Giá thấp</option>
+                        <option value="price-high">Giá cao</option>
+                        <option value="rating">Đánh giá cao</option>
+                    </select>
+                </section>
+
+                <section class="products-section">
+                    <div id="loading" class="loading-spinner" style="display:none;">
+                        <div class="spinner"></div>
+                        <p>Đang tải sản phẩm...</p>
+                    </div>
+                    <div id="productsList" class="products-grid"></div>
+                    <div id="emptyState" class="empty-state" style="display:none;">
+                        <div class="empty-icon">📦</div>
+                        <h3>Không tìm thấy sản phẩm</h3>
+                        <p>Thử tìm kiếm từ khóa khác</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- CART PAGE -->
+            <section id="cart-page" class="page-content">
+                <div class="cart-container">
+                    <h1 class="page-title">🛒 Giỏ Hàng</h1>
+                    <div class="cart-wrapper">
+                        <div id="cartItems" class="cart-items"></div>
+                        <div class="cart-summary">
+                            <h3>Tóm tắt đơn hàng</h3>
+                            <div class="summary-row">
+                                <span>Tổng tiền:</span>
+                                <span id="subtotal">0 đ</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Phí giao:</span>
+                                <span id="shipping">15000 đ</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Phí đơn hàng:</span>
+                                <span id="orderFee">5000 đ</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Giảm giá:</span>
+                                <span id="discount">0 đ</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Tổng cộng:</span>
+                                <span id="total">15000 đ</span>
+                            </div>
+                            <button id="checkoutBtn" class="checkout-btn">Đặt hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ORDERS PAGE -->
+            <section id="orders-page" class="page-content">
+                <div class="orders-container">
+                    <h1 class="page-title">📦 Đơn Hàng Của Tôi</h1>
+                    <p style="margin-bottom:16px; color:#5f4a37;">Bạn cũng có thể mở trang đơn hàng riêng: <a href="order.html" style="color:#c4411f; text-decoration: underline;">Xem order.html</a></p>
+                    <div id="ordersList" class="orders-grid">
+                        <p style="text-align:center; color:#888;">Bạn chưa có đơn hàng nào</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section id="profile-page" class="page-content">
+                <div class="profile-container">
+                    <h1 class="page-title">👤 Hồ sơ người dùng</h1>
+                    <div id="profileContent" class="profile-content">
+                        <div class="profile-section">
+                            <h3>Thông tin cá nhân</h3>
+                            <div class="info-group">
+                                <span class="label">Tên:</span>
+                                <span id="profileName" class="value">-</span>
+                            </div>
+                            <div class="info-group">
+                                <span class="label">Email:</span>
+                                <span id="profileEmail" class="value">-</span>
+                            </div>
+                            <div class="info-group">
+                                <span class="label">Số điện thoại:</span>
+                                <span id="profilePhone" class="value">Chưa cập nhật</span>
+                            </div>
+                            <div class="info-group">
+                                <span class="label">Địa chỉ:</span>
+                                <span id="profileAddress" class="value">Chưa cập nhật</span>
+                            </div>
+                            <div class="wallet-section">
+                                <h3>Ví điện tử</h3>
+                                <div class="info-group">
+                                    <span class="label">Số dư:</span>
+                                    <span id="profileBalance" class="value">0 đ</span>
+                                </div>
+                                <form id="walletForm" class="wallet-form">
+                                    <div class="wallet-field">
+                                        <label for="topUpAmount">Số tiền nạp</label>
+                                        <input type="number" id="topUpAmount" min="10000" step="10000" placeholder="Nhập số tiền (đ)" />
+                                    </div>
+                                    <button type="submit" class="btn-primary">Nạp tiền vào ví</button>
+                                </form>
+                                <a href="pay.html" class="btn-primary" style="text-align:center; display:block; margin-top: 12px;">Mở trang Thanh toán</a>
+                            </div>
+                        </div>
+                        <button id="logout-btn" class="logout-btn">🚪 Đăng xuất</button>
+                    </div>
+                    <div id="authContent" class="auth-forms">
+                        <div style="text-align: center; padding: 40px 20px;">
+                            <h2 style="margin-bottom: 20px;">🔐 Vui lòng đăng nhập</h2>
+                            <p style="margin-bottom: 20px; color: #888;">Để xem hồ sơ và quản lý đơn hàng của bạn</p>
+                            <a href="login.html" class="btn-primary" style="display: inline-block; padding: 12px 30px; text-decoration: none;">Đăng nhập</a>
+                            <p style="margin-top: 20px; color: #888;">
+                                Chưa có tài khoản? 
+                                <a href="signup.html" style="color: #00ff00; text-decoration: underline;">Đăng ký ngay</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- NOTIFICATION -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.11.0/firebase-functions.js"></script>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
